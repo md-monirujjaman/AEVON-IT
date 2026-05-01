@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aebon IT | Innovative Digital Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #061A33;    /* Deep Professional Navy */
+            --accent-cyan: #00D2FF;     /* Bright Modern Cyan */
+            --accent-blue: #0072FF;     /* Vibrant Blue */
+            --text-light: #F4F7FA;
+            --glass: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #fdfdfd;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* =============== NAVIGATION =============== */
+        header {
+            background: rgba(6, 26, 51, 0.98);
+            backdrop-filter: blur(15px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 210, 255, 0.2);
+        }
+
+        nav {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 12px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-container {
+            flex-shrink: 0;
+        }
+
+        .logo-container img {
+            height: auto; /* Allows flexible sizing without fixed height */
+            max-height: 80px; /* Set your desired max height here; navbar won't expand beyond this if you adjust padding */
+            width: auto;
+            display: block;
+        }
+
+        #menu-toggle {
+            display: none;
+        }
+
+        .menu-icon {
+            display: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent-cyan);
+        }
+         
+        /* =============== HERO SECTION =============== */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(6, 26, 51, 0.9), rgba(0, 114, 255, 0.6)),
+                        url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=1920') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.2;
+            margin-bottom: 25px;
+            background: linear-gradient(to right, #fff, var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 35px;
+            color: #d1d9e6;
+            max-width: 700px;
+            margin-inline: auto;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .cta-primary {
+            background: linear-gradient(45deg, var(--accent-blue), var(--accent-cyan));
+            color: white;
+            padding: 15px 35px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.4s;
+            box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 210, 255, 0.5);
+        }
+
+        /* =============== SERVICES =============== */
+        .services {
+            padding: 100px 20px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+        }
+
+        .section-title div {
+            width: 80px;
+            height: 4px;
+            background: var(--accent-cyan);
+            margin: 15px auto;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid #eee;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--accent-blue);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* =============== WHY CHOOSE US =============== */
+        .why-us {
+            background: var(--primary-dark);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            max-width: 1200px;
+            margin: 40px auto 0;
+            gap: 30px;
+        }
+
+        .stat-item h4 {
+            font-size: 2.5rem;
+            color: var(--accent-cyan);
+        }
+
+        /* =============== FOOTER =============== */
+        footer {
+            background: #041221;
+            color: white;
+            padding: 50px 20px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            padding-bottom: 40px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* =============== RESPONSIVE DESIGN =============== */
+        @media (max-width: 1024px) {
+            .service-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .services {
+                padding: 80px 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 10px 20px;
+                flex-wrap: wrap;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                gap: 20px;
+                width: 100%;
+                text-align: center;
+                margin-top: 20px;
+            }
+
+            #menu-toggle:checked + .menu-icon + .nav-menu {
+                display: flex;
+            }
+
+            .hero {
+                padding-top: 60px;
+                height: auto;
+                min-height: 80vh;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .btn-group {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .services {
+                padding: 60px 15px;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .service-card {
+                padding: 30px;
+            }
+
+            .why-us {
+                padding: 60px 15px;
+            }
+
+            .stat-item h4 {
+                font-size: 2rem;
+            }
+
+            footer {
+                padding: 40px 15px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-container img {
+                max-height: 60px; /* Smaller on mobile */
+            }
+
+            nav {
+                padding: 8px 15px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="image/logo aebon it.png" alt="Aebon IT Logo">
+            </div>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="activenav">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Elevate Your Business with Future-Ready Tech</h1>
+            <p>We are a full-service digital agency helping brands thrive in the modern world through cutting-edge code, strategic marketing, and stunning design.</p>
+            <div class="btn-group">
+                <a href="contact.html" class="cta-primary">Get Free Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="section-title">
+            <h2>Our Specialized Services</h2>
+            <div></div>
+            <p>Tailored solutions for your digital growth</p>
+        </div>
+
+        <div class="service-grid">
+            <div class="service-card">
+                <i class="fas fa-code"></i>
+                <h3>Web Development</h3>
+                <p>High-performance enterprise websites and e-commerce solutions built with MERN stack, PHP, and modern frameworks.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Digital Marketing</h3>
+                <p>Data-driven SEO, Social Media Marketing, and Google Ads campaigns designed to maximize your ROI and brand reach.</p>
+            </div>
+            <div class="service-card">
+                <i class="fab fa-wordpress"></i>
+                <h3>WordPress Solutions</h3>
+                <p>Custom theme development, WooCommerce integration, and advanced speed optimization for a seamless user experience.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-server"></i>
+                <h3>Cloud Hosting</h3>
+                <p>Secure, ultra-fast SSD hosting with 99.9% uptime, managed security, and 24/7 technical support for your peace of mind.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-paint-brush"></i>
+                <h3>UI/UX & Branding</h3>
+                <p>Creative logo design and intuitive user interfaces that tell your brand story and convert visitors into customers.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>App Development</h3>
+                <p>Native and Cross-platform (Flutter/React Native) mobile applications with powerful features and smooth performance.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-us">
+        <h3>Why Partner With Aebon IT?</h3>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h4>500+</h4>
+                <p>Projects Delivered</p>
+            </div>
+            <div class="stat-item">
+                <h4>150+</h4>
+                <p>Global Clients</p>
+            </div>
+            <div class="stat-item">
+                <h4>24/7</h4>
+                <p>Expert Support</p>
+            </div>
+            <div class="stat-item">
+                <h4>100%</h4>
+                <p>Client Satisfaction</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h4>About Aebon IT</h4>
+                <p style="margin-top:15px; color:#aaa;">Transforming ideas into digital reality since 2020. Your trusted partner for innovation.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul style="list-style:none; margin-top:15px; line-height:2;">
+                    <li><a href="#" style="color:#aaa; text-decoration:none;">Privacy Policy</a></li>
+                    <li><a href="#" style="color:#aaa; text-decoration:none;">Terms of Service</a></li>
+                    <li><a href="#" style="color:#aaa; text-decoration:none;">Career</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact Us</h4>
+                <p style="margin-top:15px; color:#aaa;">Email: info@aebonit.com<br>Phone: +880 1XXX-XXXXXX</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Aebon IT. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>

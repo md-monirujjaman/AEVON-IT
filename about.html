@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aebon IT | About Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #061A33; /* Deep Professional Navy */
+            --accent-cyan: #00D2FF; /* Bright Modern Cyan */
+            --accent-blue: #0072FF; /* Vibrant Blue */
+            --text-light: #F4F7FA;
+            --glass: rgba(255, 255, 255, 0.1);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+        }
+        body {
+            background-color: #fdfdfd;
+            color: #333;
+            overflow-x: hidden;
+        }
+        /* =============== NAVIGATION =============== */
+        header {
+            background: rgba(6, 26, 51, 0.98);
+            backdrop-filter: blur(15px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 210, 255, 0.2);
+        }
+        nav {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 12px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo-container {
+            flex-shrink: 0;
+        }
+        .logo-container img {
+            height: auto; /* Allows flexible sizing without fixed height */
+            max-height: 80px; /* Set your desired max height here; navbar won't expand beyond this if you adjust padding */
+            width: auto;
+            display: block;
+        }
+        #menu-toggle {
+            display: none;
+        }
+        .menu-icon {
+            display: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .nav-menu a:hover {
+            color: var(--accent-cyan);
+        }
+        .nav-menu .active {
+            color: var(--accent-cyan);
+        }
+        /* =============== HERO SECTION =============== */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(135deg, rgba(6, 26, 51, 0.9), rgba(0, 114, 255, 0.6)),
+                        url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1920') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding-top: 80px;
+        }
+        .hero-content {
+            max-width: 1000px;
+            padding: 0 20px;
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.2;
+            margin-bottom: 25px;
+            background: linear-gradient(to right, #fff, var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 35px;
+            color: #d1d9e6;
+            max-width: 700px;
+            margin-inline: auto;
+        }
+        .btn-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+        .cta-primary {
+            background: linear-gradient(45deg, var(--accent-blue), var(--accent-cyan));
+            color: white;
+            padding: 15px 35px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.4s;
+            box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
+        }
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 210, 255, 0.5);
+        }
+        /* =============== ABOUT SECTIONS =============== */
+        .about {
+            padding: 100px 20px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+        }
+        .section-title div {
+            width: 80px;
+            height: 4px;
+            background: var(--accent-cyan);
+            margin: 15px auto;
+        }
+        .company-overview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+        .overview-image {
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .overview-content {
+            padding: 20px;
+        }
+        .overview-content h3 {
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+        }
+        .overview-content p {
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 1rem;
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 80px;
+        }
+        .value-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #eee;
+            transition: 0.3s;
+            text-align: center;
+        }
+        .value-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+        .value-card i {
+            font-size: 2.5rem;
+            color: var(--accent-blue);
+            margin-bottom: 20px;
+        }
+        .value-card h4 {
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+        .value-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        .team-section {
+            text-align: center;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .team-member {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .member-image {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+        }
+        .member-info {
+            padding: 20px;
+        }
+        .member-info h4 {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+        }
+        .member-info p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .social-links a {
+            color: #666;
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+        .social-links a:hover {
+            color: var(--accent-cyan);
+        }
+        /* =============== WHY CHOOSE US =============== */
+        .why-us {
+            background: var(--primary-dark);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            max-width: 1200px;
+            margin: 40px auto 0;
+            gap: 30px;
+        }
+        .stat-item h4 {
+            font-size: 2.5rem;
+            color: var(--accent-cyan);
+        }
+        /* =============== FOOTER =============== */
+        footer {
+            background: #041221;
+            color: white;
+            padding: 50px 20px 20px;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            padding-bottom: 40px;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #888;
+        }
+        /* =============== RESPONSIVE DESIGN =============== */
+        @media (max-width: 1024px) {
+            .company-overview {
+                grid-template-columns: 1fr;
+            }
+            .overview-image {
+                height: 300px;
+            }
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            .about {
+                padding: 80px 15px;
+            }
+        }
+        @media (max-width: 768px) {
+            nav {
+                padding: 10px 20px;
+                flex-wrap: wrap;
+            }
+            .menu-icon {
+                display: block;
+            }
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                gap: 20px;
+                width: 100%;
+                text-align: center;
+                margin-top: 20px;
+            }
+            #menu-toggle:checked + .menu-icon + .nav-menu {
+                display: flex;
+            }
+            .hero {
+                padding-top: 60px;
+                height: auto;
+                min-height: 60vh;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .btn-group {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .about {
+                padding: 60px 15px;
+            }
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            .why-us {
+                padding: 60px 15px;
+            }
+            .stat-item h4 {
+                font-size: 2rem;
+            }
+            footer {
+                padding: 40px 15px 15px;
+            }
+        }
+        @media (max-width: 480px) {
+            .logo-container img {
+                max-height: 60px; /* Smaller on mobile */
+            }
+            nav {
+                padding: 8px 15px;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="image/logo aebon it.png" alt="Aebon IT Logo">
+            </div>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Discover Our Story and Vision</h1>
+            <p>Learn about Aebon IT's journey, our dedicated team, and our commitment to digital excellence.</p>
+            <div class="btn-group">
+                <a href="contact.html" class="cta-primary">Join Our Team</a>
+            </div>
+        </div>
+    </section>
+    <section class="about">
+        <div class="company-overview">
+            <div class="overview-image" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800');"></div>
+            <div class="overview-content">
+                <h3>Our Journey Since 2020</h3>
+                <p>Aebon IT was founded in 2020 with a mission to transform innovative ideas into powerful digital solutions. Starting as a small team of passionate developers and designers, we've grown into a full-service digital agency serving clients worldwide.</p>
+                <p>Our expertise in cutting-edge technologies has helped businesses navigate the digital landscape, delivering measurable results and fostering long-term partnerships.</p>
+                <p>Today, we continue to push boundaries, combining creativity with technical prowess to create digital experiences that drive success.</p>
+            </div>
+        </div>
+
+        <div class="section-title">
+            <h2>Our Core Values</h2>
+            <div></div>
+            <p>Guiding principles that define our approach</p>
+        </div>
+        <div class="values-grid">
+            <div class="value-card">
+                <i class="fas fa-lightbulb"></i>
+                <h4>Innovation</h4>
+                <p>We embrace new technologies and creative solutions to stay ahead in the digital world.</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-handshake"></i>
+                <h4>Integrity</h4>
+                <p>Building trust through honest communication and reliable delivery.</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-users"></i>
+                <h4>Collaboration</h4>
+                <p>Working closely with clients to achieve shared goals and success.</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-rocket"></i>
+                <h4>Excellence</h4>
+                <p>Striving for the highest quality in every project we undertake.</p>
+            </div>
+        </div>
+
+        <div class="section-title">
+            <h2>Meet Our Team</h2>
+            <div></div>
+            <p>Expert professionals dedicated to your success</p>
+        </div>
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-image" style="background-image: url('https://images.unsplash.com/photo-1500648762-4d0a9e62dae6?auto=format&fit=crop&q=80&w=400');"></div>
+                <div class="member-info">
+                    <h4>John Doe</h4>
+                    <p>CEO & Founder</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-image" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400');"></div>
+                <div class="member-info">
+                    <h4>Jane Smith</h4>
+                    <p>Chief Designer</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-image" style="background-image: url('https://images.unsplash.com/photo-1552058544-f2b08422138a?auto=format&fit=crop&q=80&w=400');"></div>
+                <div class="member-info">
+                    <h4>Mike Johnson</h4>
+                    <p>Lead Developer</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-image" style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400');"></div>
+                <div class="member-info">
+                    <h4>Sarah Lee</h4>
+                    <p>Marketing Director</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="why-us">
+        <h3>Why Partner With Aebon IT?</h3>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h4>500+</h4>
+                <p>Projects Delivered</p>
+            </div>
+            <div class="stat-item">
+                <h4>150+</h4>
+                <p>Global Clients</p>
+            </div>
+            <div class="stat-item">
+                <h4>24/7</h4>
+                <p>Expert Support</p>
+            </div>
+            <div class="stat-item">
+                <h4>100%</h4>
+                <p>Client Satisfaction</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h4>About Aebon IT</h4>
+                <p style="margin-top:15px; color:#aaa;">Transforming ideas into digital reality since 2020. Your trusted partner for innovation.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul style="list-style:none; margin-top:15px; line-height:2;">
+                    <li><a href="#" style="color:#aaa; text-decoration:none;">Privacy Policy</a></li>
+                    <li><a href="#" style="color:#aaa; text-decoration:none;">Terms of Service</a></li>
+                    <li><a href="#" style="color:#aaa; text-decoration:none;">Career</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact Us</h4>
+                <p style="margin-top:15px; color:#aaa;">Email: info@aebonit.com<br>Phone: +880 1XXX-XXXXXX</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Aebon IT. All Rights Reserved.
+        </div>
+    </footer>
+</body>
+</html>
