@@ -22,4 +22,3 @@ If you are interested in collaborating with us or have any inquiries, feel free 
 * **Location:** Khulna, Bangladesh
 
 ---
-*Built with passion by the Aveon IT Agency Team.*
