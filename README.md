@@ -11,6 +11,5 @@ Aveon IT Agency specializes in modern technology solutions tailored to help busi
 * **Digital Solutions:** IT consulting and digital transformation strategies.
 * **Maintenance & Support:** Ongoing technical assistance and updates.
 
-## Our Vision
-To bridge the gap between complex technology and user-friendly experiences, empowering businesses worldwide with scalable IT solutions.
+
 
