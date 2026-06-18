@@ -14,11 +14,3 @@ Aveon IT Agency specializes in modern technology solutions tailored to help busi
 ## Our Vision
 To bridge the gap between complex technology and user-friendly experiences, empowering businesses worldwide with scalable IT solutions.
 
-## Contact Information
-If you are interested in collaborating with us or have any inquiries, feel free to reach out:
-
-* **Email:** [insert email address]
-* **Website:** [insert website URL]
-* **Location:** Khulna, Bangladesh
-
----
