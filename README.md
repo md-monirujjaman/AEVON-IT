@@ -9,7 +9,7 @@ Aveon IT Agency specializes in modern technology solutions tailored to help busi
 * **Software Development:** Custom web and mobile applications.
 * **UI/UX Design:** User-centric and aesthetically pleasing interface design.
 * **Digital Solutions:** IT consulting and digital transformation strategies.
-* **Maintenance & Support:** Ongoing technical assistance and updates.
+
 
 
 
